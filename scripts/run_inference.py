@@ -7,10 +7,18 @@ import psutil
 import humanize
 import logging
 
-def load_config(config_path="../config/model_config.yaml"):
+def load_config(config_path="config/model_config.yaml"):
     """Load configuration from YAML file"""
-    with open(config_path, 'r') as f:
+    # Get the parent directory of the current script
+    parent_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Construct the full path to the config file
+    full_config_path = os.path.join(parent_dir, config_path)
+    
+    # Load the configuration from the YAML file
+    with open(full_config_path, 'r') as f:
         config = yaml.safe_load(f)
+    
     return config
 
 def setup_logging(config):
