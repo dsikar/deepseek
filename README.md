@@ -53,7 +53,7 @@ The main inference script uses a YAML configuration file for all settings. You c
 
 ```bash
 python scripts/run_inference.py --config path/to/your/config.yaml
-
+```
 ## Model Statistics
 
 The scripts provide detailed model statistics including:
