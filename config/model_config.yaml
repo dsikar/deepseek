@@ -1,0 +1,61 @@
+# Model Configuration File for DeepSeek Inference
+
+# Model Settings
+model:
+  name: "deepseek-ai/DeepSeek-V3-Base"
+  revision: "main"
+  trust_remote_code: true
+  cache_dir: "~/localscratch/deepseek"
+
+# Hardware Settings
+hardware:
+  device: "auto"  # 'auto', 'cuda', 'cpu'
+  precision: "float16"  # 'float32', 'float16', 'bfloat16'
+  device_map: "auto"  # 'auto', 'balanced', 'sequential'
+
+# Inference Settings
+inference:
+  max_length: 512
+  temperature: 0.7
+  top_p: 0.95
+  top_k: 50
+  do_sample: true
+  num_return_sequences: 1
+  pad_token_id: 0
+  eos_token_id: 2
+  repetition_penalty: 1.1
+
+# Tokenizer Settings
+tokenizer:
+  padding: true
+  truncation: true
+  max_length: 512
+  return_tensors: "pt"
+
+# Memory Management
+memory:
+  max_memory: null  # Set to specific value in GB if needed
+  offload_folder: "~/localscratch/deepseek/offload"
+  gradient_checkpointing: false
+  torch_dtype: "float16"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  file: "inference.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  stats_tracking: true
+
+# Cache Settings
+cache:
+  enable_cache: true
+  max_cache_size: "10GB"
+  cleanup_on_exit: true
+
+# Performance Monitoring
+monitoring:
+  track_memory: true
+  track_time: true
+  track_gpu: true
+  save_metrics: true
+  metrics_file: "performance_metrics.json"
