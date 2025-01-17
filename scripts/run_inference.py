@@ -33,7 +33,11 @@ def setup_logging(config):
 
 def create_model_directory(path):
     """Create directory if it doesn't exist"""
-    Path(path).mkdir(parents=True, exist_ok=True)
+    try:
+        Path(path).mkdir(parents=True, exist_ok=True)
+    except FileExistsError:
+        # Directory already exists, so we can safely ignore this error
+        pass
     return path
 
 def get_model_stats(model, model_path, config):
