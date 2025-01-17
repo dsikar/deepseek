@@ -9,8 +9,9 @@ import logging
 
 def load_config(config_path="config/model_config.yaml"):
     """Load configuration from YAML file"""
-    # Get the parent directory of the current script
-    parent_dir = os.path.dirname(os.path.abspath(__file__))
+    # Get the parent directory of the current script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(script_dir)
     
     # Construct the full path to the config file
     full_config_path = os.path.join(parent_dir, config_path)
