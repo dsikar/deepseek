@@ -5,7 +5,7 @@
 # DeepSeek Inference
 #===============================================================================
 
-#SBATCH -D /users/aczd097/git/deepseek-inference/scripts    # Working directory
+#SBATCH -D /users/aczd097/git/deepseek-inference    # Working directory
 #SBATCH --job-name deepseek                                                 # Job name (8 characters or less)
 #SBATCH --mail-type=ALL                                                     # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=daniel.sikar@city.ac.uk                                 # Where to send mail
@@ -64,7 +64,7 @@ mkdir -p outputs
 echo "Job started at $(date)"
 
 # Execute the Python training script
-python run_inference.py
+python scripts/run_inference.py
 #===============================================================================
 # Email Job Output and Calculate Duration
 #===============================================================================
